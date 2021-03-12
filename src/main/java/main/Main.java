@@ -11,12 +11,13 @@ import java.util.Scanner;
  */
 public class Main {
 	public static void main(String[] args) {
+		try {
 		Boolean exit = false;
 		Scanner in = new Scanner(System.in);		
 		while(!exit) {
 			System.out.println("\nChoose an option from the following:");
 			System.out.println("1. Run All.\n2. Run multiples of 7 (to 100)\n3. Run multiples of 8 (to 200)");
-			System.out.println("4. Run multiples of 9 (to 300)\n5. Exit");
+			System.out.println("4. Run multiples of 9 (to 300)\n5. Custom Multiple & Goal\n6. Exit");
 			switch(in.nextInt()) {
 				case 1:
 					System.out.println(seven());
@@ -33,12 +34,23 @@ public class Main {
 					System.out.println(nine());
 					break;
 				case 5:
+					System.out.println("Enter a value to iterate in multiples of: i.e. 7");
+					int multiple = in.nextInt();
+					System.out.println("Enter a value to iterate up to: i.e. 100");
+					int goal = in.nextInt();
+					System.out.println("\n" + multiples(multiple, goal));
+					break;
+				case 6:
 					System.out.println("Exiting...");
 					exit = true;
 					break;
 				default:
 					System.out.println("Invalid input. Please try again.");
 			}
+		}
+		} catch (Exception e) {
+			System.out.println("Exception Caught! Input only accepts number values - no letter characters, exclamation marks, etc.");
+			main(args);
 		}
 	}
 	
