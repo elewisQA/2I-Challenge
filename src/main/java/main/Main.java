@@ -8,27 +8,28 @@ package main;
  */
 public class Main {
 	public static void main(String[] args) {
-		int counter = 0;
-		System.out.println("Increments of: 7\n");
-		System.out.println(counter);
-		while (counter + 7 <= 100) {
-			counter += 7;
-			System.out.println(counter);
+		System.out.println("Multiples of: 7:");
+		multiples(7, 100);	
+		
+		System.out.println("\nMultiples of 8:");
+		multiples(8, 200);
+		
+		System.out.println("\nMultiples of 9:");
+		multiples(9, 300);
+	}
+	
+	public static void multiples(int multiple, int goal) {
+		Integer counter = 0;
+		StringBuilder sb = new StringBuilder();
+		sb.append(counter);
+		
+		// Run through multiples till reaching the desired number
+		while (counter + multiple <= goal) {
+			counter += multiple;
+			sb.append(", ");
+			sb.append(counter);		
 		}
 		
-		counter = 0;
-		System.out.println("\nIncrements of: 8\n");
-		while (counter + 8 <= 200) {
-			counter += 8;
-			System.out.println(counter);
-		}
-		
-		counter = 0;
-		System.out.println("\nIncrements of: 9\n");
-		while (counter + 9 <= 300) {
-			counter += 9;
-			System.out.println(counter);
-		}
-		
+		System.out.println(sb.toString());
 	}
 }
