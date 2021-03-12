@@ -1,4 +1,7 @@
 package main;
+
+import java.util.Scanner;
+
 /*
  * 2I Coding Challenge
  * Brief:
@@ -8,17 +11,53 @@ package main;
  */
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("Multiples of: 7:");
-		multiples(7, 100);	
-		
-		System.out.println("\nMultiples of 8:");
-		multiples(8, 200);
-		
-		System.out.println("\nMultiples of 9:");
-		multiples(9, 300);
+		Boolean exit = false;
+		Scanner in = new Scanner(System.in);		
+		while(!exit) {
+			System.out.println("\nChoose an option from the following:");
+			System.out.println("1. Run All.\n2. Run multiples of 7 (to 100)\n3. Run multiples of 8 (to 200)");
+			System.out.println("4. Run multiples of 9 (to 300)\n5. Exit");
+			switch(in.nextInt()) {
+				case 1:
+					System.out.println(seven());
+					System.out.println(eight());
+					System.out.println(nine());
+					break;
+				case 2:
+					System.out.println(seven());
+					break;
+				case 3:
+					System.out.println(eight());
+					break;
+				case 4:
+					System.out.println(nine());
+					break;
+				case 5:
+					System.out.println("Exiting...");
+					exit = true;
+					break;
+				default:
+					System.out.println("Invalid input. Please try again.");
+			}
+		}
 	}
 	
-	public static void multiples(int multiple, int goal) {
+	public static String seven() {
+		System.out.println("\nMultiples of 7: (up to 100)");
+		return(multiples(7, 100));	
+	}
+	
+	public static String eight() {
+		System.out.println("\nMultiples of 8: (up to 200)");
+		return(multiples(8, 200));
+	}
+	
+	public static String nine() {
+		System.out.println("\nMultiples of 9: (up to 300)");
+		return(multiples(9, 300));
+	}
+	
+	public static String multiples(int multiple, int goal) {
 		Integer counter = 0;
 		StringBuilder sb = new StringBuilder();
 		sb.append(counter);
@@ -30,6 +69,6 @@ public class Main {
 			sb.append(counter);		
 		}
 		
-		System.out.println(sb.toString());
+		return(sb.toString());
 	}
 }
